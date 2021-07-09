@@ -1,6 +1,6 @@
 ---
   - name: Install and configure tomcat
-    hosts: 137.135.127.123
+    hosts: 52.234.215.141
     gather_facts: false
     become: yes
     tasks:
