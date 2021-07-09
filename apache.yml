@@ -1,18 +1,39 @@
 ---
-- hosts: webservers 
-  become: True
-  tasks:
-    - name: Install packages
-      yum:
-        name: "httpd"
-        state: "present"
-    - name: Start Apache server
-      service:
-        name: httpd
-        state: started
-        enabled: True
-    - name: Deploy static website
-      copy:
-        src: index.html
-        dest: /var/www/html/
-...
+  - name: Install and configure tomcat
+    hosts: 
+    gather_facts: false
+    vars:
+      req_java: java-1.8.0-openjdk
+      set_java: jre-1.8.0-openjdk
+    become: yes
+    tasks:
+      - name: Updating repos
+        yum:
+          name: "*"
+          state: latest
+      - name: Installing required java
+        yum:
+          name: {{"req_java"}}
+          state: present
+      - name:
+        alternatives:
+          name: java
+          link: /usr/bin/java
+          path: /usr/lib/jvm/{{"set_java"}}/bin/java
+      tasks: 
+       - name: Downloading required java
+         get_url:
+            url: https://downloads.apache.org/tomcat/tomcat-9/v9.0.50/bin/apache-tomcat-9.0.50.tar.gz
+            dest: /usr/local
+      tasks:
+        - name: Extracting downloaded Tomcat
+          unarchive:
+           src: "/usr/local/apache-tomcat-9.0.50.tar.gz"
+           dest: /usr/bin
+           remote_src: yes
+      tasks:
+        - name: Renaming tomcat home
+          command: mv /usr/local/apache-tomcat-9.0.50 /usr/local/latest
+      tasks: 
+        - name: Starting tomcat
+          shell: nohup usr/local/latest/bin/startup.sh &
