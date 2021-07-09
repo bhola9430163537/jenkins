@@ -1,4 +1,4 @@
---
+---
   - name: Install and configure tomcat
     hosts: 137.135.127.123
     gather_facts: false
