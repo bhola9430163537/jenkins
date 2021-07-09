@@ -31,9 +31,9 @@
              src: "/usr/local/apache-tomcat-9.0.50.tar.gz"
              dest: /usr/bin
              remote_src: yes
-     tasks:
-        - name: Renaming tomcat home
-          command: mv /usr/local/apache-tomcat-9.0.50 /usr/local/latest
-     tasks: 
-        - name: Starting tomcat
-          shell: nohup usr/local/latest/bin/startup.sh &
+    tasks:
+       - name: Renaming tomcat home
+         command: mv /usr/local/apache-tomcat-9.0.50 /usr/local/latest
+    tasks: 
+       - name: Starting tomcat
+         shell: nohup usr/local/latest/bin/startup.sh &
