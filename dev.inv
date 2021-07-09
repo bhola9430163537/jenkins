@@ -1,2 +1,2 @@
 [webservers]
-137.135.127.123 ansible_user=riteshuser 
+52.234.215.141 ansible_user=riteshuser 
