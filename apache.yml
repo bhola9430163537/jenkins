@@ -2,9 +2,6 @@
   - name: Install and configure tomcat
     hosts: 137.135.127.123
     gather_facts: false
-    vars:
-      req_java: java-1.8.0-openjdk
-      set_java: jre-1.8.0-openjdk
     become: yes
     tasks:
        - name: Updating repos
@@ -13,13 +10,13 @@
            state: latest
        - name: Installing required java
          yum:
-           name: {{"req_java"}}
+           name: java-1.8.0-openjdk
            state: present
        - name:
          alternatives:
            name: java
            link: /usr/bin/java
-           path: /usr/lib/jvm/{{"set_java"}}/bin/java
+           path: /usr/lib/jvm/jre-1.8.0-openjdk/bin/java
     tasks: 
        - name: Downloading required java
          get_url:
