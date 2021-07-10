@@ -1,9 +1,9 @@
 ---
   - name: Install and configure tomcat
-    hosts: 52.188.148.91
-    gather_facts: false
+    hosts: webservers
+    gather_facts: true
     become: yes
-    tasks:
+     tasks:
        - name: Updating repos
          yum:
            name: "*"
