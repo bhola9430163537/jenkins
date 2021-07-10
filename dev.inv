@@ -1,2 +1,2 @@
 [webservers]
-52.234.215.141 ansible_ssh_user=riteshuser ansible_ssh_pass=Acj2#34$1234 ansible_sudo_pass=Acj2#34$1234
+168.62.162.143 ansible_ssh_user=riteshuser ansible_ssh_pass=Acj2#34$1234 ansible_sudo_pass=Acj2#34$1234
