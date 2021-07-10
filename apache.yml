@@ -1,13 +1,9 @@
 ---
   - name: Install and configure tomcat
     hosts: 52.234.215.141
-    gather_facts: true
+    gather_facts: false
     become: yes
     tasks:
-       - name: Updating repos
-         apt:
-           name: "*"
-           state: latest
        - name: Installing required java
          apt:
            name: java-1.8.0-openjdk
