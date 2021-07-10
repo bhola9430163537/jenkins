@@ -5,10 +5,10 @@
     become: yes
     tasks:
        - name: Updating repos
-         yum:
+         apt:
            name: "*"
            state: latest
        - name: Installing required java
-         yum:
+         apt:
            name: java-1.8.0-openjdk
            state: present
