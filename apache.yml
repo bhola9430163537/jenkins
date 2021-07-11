@@ -10,13 +10,8 @@
            state: latest
        - name: Installing required java
          apt:
-           name: java-1.8.0-openjdk
+           name: openjdk-1.8.0-jdk
            state: present
-       - name: checking for alternative
-         alternatives:
-           name: java
-           link: /usr/bin/java
-           path: /usr/lib/jvm/jre-1.8.0-openjdk/bin/java
        - name: Downloading required tomcat
          get_url:
              url: https://downloads.apache.org/tomcat/tomcat-9/v9.0.50/bin/apache-tomcat-9.0.50.tar.gz
