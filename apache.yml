@@ -19,13 +19,13 @@
           path: /usr/lib/jvm/jre-1.8.0-openjdk/bin/java 
       - name: Downloading required java
         get_url:
-            url: https://downloads.apache.org/tomcat/tomcat-9/v9.0.50/bin/apache-tomcat-9.0.50.tar.gz
-            dest: /usr/local
+          url: https://downloads.apache.org/tomcat/tomcat-9/v9.0.50/bin/apache-tomcat-9.0.50.tar.gz
+          dest: /usr/local
       - name: Extracting downloaded Tomcat
         unarchive:
-            src: "/usr/local/apache-tomcat-9.0.50.tar.gz"
-            dest: /usr/bin
-            remote_src: yes
+          src: "/usr/local/apache-tomcat-9.0.50.tar.gz"
+          dest: /usr/bin
+          remote_src: yes
       - name: Renaming tomcat home
         command: mv /usr/local/apache-tomcat-9.0.50 /usr/local/latest 
       - name: Starting tomcat
