@@ -1,15 +1,15 @@
 ---
   - name: Install and configure tomcat
-    hosts: 20.106.149.128
+    hosts: 52.188.22.8
     gather_facts: false
     become: yes
     tasks:
        - name: updating repos
-         yum:
+         apt:
            name: "*"
            state: latest
        - name: Installing required java
-         yum:
+         apt:
            name: java-1.8.0-openjdk
            state: present
        - name: checking for alternative
