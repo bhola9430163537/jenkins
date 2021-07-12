@@ -4,10 +4,10 @@
     gather_facts: false
     tasks:
       - name: Updating repos
+        become: yes
         yum:
           name: "*"
           state: latest
-          become: yes
       - name: Installing required java
         yum:
           name: java-1.8.0-openjdk
