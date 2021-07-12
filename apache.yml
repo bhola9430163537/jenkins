@@ -35,5 +35,4 @@
         become: yes
       - name: Starting tomcat
         become: yes
-        shell: chown -R usr/bin/latest/bin
         shell: nohup usr/bin/latest/bin/startup.sh &
