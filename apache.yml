@@ -35,6 +35,5 @@
         become: yes
       - name: Starting tomcat
         become: yes
-        args:
-          chdir: usr/bin/latest/bin
+        shell: chown -R usr/bin/latest/bin
         shell: nohup usr/bin/latest/bin/startup.sh &
