@@ -1,6 +1,6 @@
 ---
   - name: Install and configure tomcat
-    hosts: 20.106.159.195
+    hosts: webservers
     gather_facts: false
     tasks:
       - name: Updating repos
