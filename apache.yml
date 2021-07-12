@@ -3,7 +3,6 @@
     hosts: 20.106.159.195
     gather_facts: false
     become: yes
-    warn: false
     tasks:
       - name: Updating repos
         yum:
@@ -29,7 +28,7 @@
           remote_src: yes
       - name: Renaming tomcat home
         command: mv /usr/bin/apache-tomcat-9.0.50 /usr/bin/latest
-      - name: Changing permission for tomcat bin
-        command: chown -R /usr/bin/latest/bin
       - name: Starting tomcat
+        args:
+          chown: usr/bin/latest/bin
         shell: nohup usr/bin/latest/bin/startup.sh &
