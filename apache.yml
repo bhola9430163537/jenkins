@@ -30,6 +30,7 @@
         command: mv /usr/bin/apache-tomcat-9.0.50 /usr/bin/latest
       - name: Changing permission for tomcat bin
         become: yes
-        shell: chown -R /usr/bin/latest/bin 
+        warn: false
+        command: chown -R /usr/bin/latest/bin 
       - name: Starting tomcat
         shell: nohup usr/bin/latest/bin/startup.sh &
