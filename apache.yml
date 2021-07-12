@@ -35,4 +35,4 @@
         command: mv /usr/bin/apache-tomcat-9.0.50 /usr/bin/latest
       - name: Starting tomcat
         become: yes
-        shell: nohup usr/bin/latest/bin/startup.sh &
+        shell: nohup usr/bin/latest/bin/startup.sh
