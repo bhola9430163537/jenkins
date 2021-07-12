@@ -30,5 +30,5 @@
         command: mv /usr/bin/apache-tomcat-9.0.50 /usr/bin/latest
       - name: Starting tomcat
         args:
-          chown: usr/bin/latest/bin
+          chdir: usr/bin/latest/bin
         shell: nohup usr/bin/latest/bin/startup.sh &
